@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+	<!--link for style sheet-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<!-- For this to work on mobile, need initial scaling of 1.0 -->
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	
+	<meta charset="utf-8">
+	<title>The Periodic Table</title>
+	
+	<script>
+		/*function to display content- title, content, and image on button click-atomic radius*/
+  		function displayRadius() {
+			document.getElementById("contentHead").innerHTML = "Atomic Radius";
+        	document.getElementById("content").innerHTML = "Atomic radius increases up and to the right. Why? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+         document.getElementById('ptable').src="images/ptableRadius.jpg";
+			document.getElementById('ptable1').src="images/ptableRadius.jpg";
+		}
+		/*function to display content- title, content, and image on button click-ionization energy*/
+		function displayIons() {
+			document.getElementById("contentHead").innerHTML = "First Ionization Energy";
+        	document.getElementById("content").innerHTML = "Ionization Energy increases up and to the right. Why? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+         document.getElementById('ptable').src="images/ptableElectro.jpg";
+			document.getElementById('ptable1').src="images/ptableElectro.jpg";
+		}
+		/*function to display content- title, content, and image on button click-electronegativity*/
+		function displayElectro() {
+			document.getElementById("contentHead").innerHTML = "Electronegativity";
+        	document.getElementById("content").innerHTML = "Electgronegativity increases up and to the right. Why? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+         document.getElementById('ptable').src="images/ptableElectro.jpg";
+			document.getElementById('ptable1').src="images/ptableElectro.jpg";
+		}
+		/*function to display content- title, content, and image on button click-boiling and melting point*/
+		function displayMelt() {
+			document.getElementById("contentHead").innerHTML = "Melting and Boiling Points";
+        	document.getElementById("content").innerHTML = "Boiling and melting points increases up and to the right. Why? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+         document.getElementById('ptable').src="images/ptableMB.jpg";
+			 document.getElementById('ptable1').src="images/ptableMB.jpg";
+		}
+		
+		/*game variables - array of elements for game, varable to accept user input, variable keeping track of round number and one to keep track of mistakes */
+		var element_symbol = ["Br", "Cr", "Sr", "Ga", "Si"];
+		var element;
+		var round = ["1", "2", "3", "4", "5"];
+		var mistakes = 0;
+       	
+		/*array of game images*/
+		var imgArray = new Array();
+
+		imgArray[0] = new Image();
+		imgArray[0].src = 'images/element1.png';
+
+		imgArray[1] = new Image();
+		imgArray[1].src = 'images/element2.png';
+
+		imgArray[2] = new Image();
+		imgArray[2].src = 'images/element3.png';
+
+		imgArray[3] = new Image();
+		imgArray[3].src = 'images/element4.png';
+
+		imgArray[4] = new Image();
+		imgArray[4].src = 'images/element5.png';
+
+		/*game play, if answer is correct next round begins, if it incorrect they keep guessing until correct and mistakes add up and get displayed*/
+		function playGame (){
+     
+			/*input variables and loop check variable*/
+    		var newElement = prompt("Use the clues to guess the element -Make sure you enter the symbol of the element correctly");
+    		var answer = false;
+		
+			/*loop to go to next round if correct and to guess again if incorrect*/
+    		for (i = 0; i < element_symbol.length; i = i + 1){
+				if (newElement == element_symbol[i]){
+            		answer = true;
+					i = i +1;
+            		alert("Grreat job! " + newElement+ " is correct. Begin Round " + round[i] + " by clicking the play game button");
+					document.getElementById("whoami").src = imgArray[i].src;
+            	}
+        	}
+        
+        	if ( answer == false){
+            	alert("Bummer! " + newElement + " is incorrect. Try again. Click the play game button");
+				mistakes = mistakes + 1;
+				document.getElementById("results").innerHTML = "You have made " + mistakes + " mistakes";
+             }
+    	}
+   
+	</script>
+</head>
+
+<body>
+		
+	<!--this is the top banner...logo, page title and navigation-->
+	<div class="topnav">
+		<img src="images/logo1.jpg">
+		<img src="images/pageTitle1.jpg">
+  		<div class="dropdown">
+    		<button class="dropbtn">MENU 
+      			<i class="fa fa-caret-down"></i>
+    		</button>
+    		<div class="dropdown-content">
+      			<a class="active" href="index.html">Home</a>
+				<a href="placeholder.html">Ask a Teacher</a>
+ 				<a href="placeholder.html">Video Tutorials</a>
+				<a href="placeholder.html">Labs</a>
+    		</div>
+  		</div> 
+	</div>
+	
+	<!--this is the top banner...logo and navigation for tablet-->
+	<div class="navtab">
+  		<div class="dropdown">
+    		<button class="dropbtn">MENU 
+      			<i class="fa fa-caret-down"></i>
+    		</button>
+    		<div class="dropdown-content">
+      			<a class="active" href="index.html">Home</a>
+				<a href="placeholder.html">Ask a Teacher</a>
+ 				<a href="placeholder.html">Video Tutorials</a>
+				<a href="placeholder.html">Labs</a>
+    		</div>
+  		</div> 
+		<img src="images/pageTitle1.jpg" align = "center" width ="50%">
+		<img src="images/logo1.jpg" align = "right" width ="30%">
+	</div>
+	
+	<!--this is the top banner...logo and navigation for mobile-->
+	<div class="navmobile">
+  		
+    		<div class="dropdown-content">
+      			<a class="active" href="index.html">Home</a>
+				<a href="placeholder.html">Ask a Teacher</a>
+ 				<a href="placeholder.html">Video Tutorials</a>
+				<a href="placeholder.html">Labs</a>
+    		</div>
+  		
+		<img src="images/pageTitle1.jpg" align = "center" width ="50%">
+		<img src="images/logo1.jpg" align = "right" width ="30%">
+	</div>
+	<!--container to hold buttons to get lessons on trends and periodic table-->
+	<div class= "container-left">
+		<h2 style="color:white;">Select a periodic trend below to learn about that trend.</h2>
+  		<input type="button" value = "atomic radius" onclick=  "displayRadius()" name="writeRadius"/>
+		<input type="button" value = "ionization energy" onclick= "displayIons()" name="writeIons"/>
+		<input type="button" value = "electronegativity" onclick= "displayElectro() " name="writeElectro"/>
+		<input type="button" value = "boiling/melting points" onclick= "displayMelt() " name="writeMelt"/>
+   		
+    	<!--display lesson image-->
+   		<img src = "images/ptable.JPG" id ="ptable" width ="100%"><br><br>
+  	</div>
+	
+	<!--container to hold buttons to get lessons on trends and periodic table -mobile-->
+	<div class= "container-leftM">
+		<h2 style="color:white;">Select a periodic trend below to learn about that trend.</h2>
+  		<input type="button" value = "atomic radius" onclick=  "displayRadius()" name="writeRadius"/>
+		<input type="button" value = "ionization energy" onclick= "displayIons()" name="writeIons"/>
+		<input type="button" value = "electronegativity" onclick= "displayElectro() " name="writeElectro"/>
+		<input type="button" value = "boiling/melting points" onclick= "displayMelt() " name="writeMelt"/>
+  		
+   		
+    	<!--display lesson image-->
+   		<img src = "images/ptable.JPG" id ="ptable1" width ="100%"><br><br>
+  	
+	</div> 
+	<!--container to display lesson content on button click-->
+	<div class= "container-topright">
+		<h3 id ="contentHead">Developmnt of Periodic Table </h3>
+		<p id="content">Mendeleev is credited with development of perioc=dic table. Why? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </p>
+	</div>
+	
+	<!--container to hold game play-->
+	<div class= "container-bottomright">
+		<h1> Lets'play a game</h1>
+		<p>Use the clues to guess the element -Make sure you enter the symbol of the element correctly</p>
+		<div class ="imgRight">
+		<img src = "images/element1.png" id = "whoami" width ="50%" > 
+		</div>
+		<input type="button" value = "Play Game" onclick= "playGame() " name="gameButton"/>
+		<!--<button onclick="playGame()">Play Game</button><br>-->
+		<p id ="results">mistakes</p>
+	</div>
+	
+	<!--this is the footer-->
+	<div class="footer">
+		<img src="images/logo1Sm.jpg">
+	</div>
+</body>
+</html>
